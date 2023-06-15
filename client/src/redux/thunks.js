@@ -35,7 +35,10 @@ export const getTasks = () => {
   return async (dispatch) => {
     dispatch(setLoading(true));
     try {
-      const response = await axios.get("/api/v1/tasks");
+      const config = { header: { "Content-Type": "application/json" } };
+      const response = await axios.get(
+        "https://task-manager-wxtk.onrender.com/api/v1/tasks"
+      );
       const { tasks } = await response.data;
 
       const loadedTasks = [];
@@ -60,7 +63,10 @@ export const updateTask = (taskId, updates, navigate) => {
   return async (dispatch) => {
     dispatch(setLoading(true));
     try {
-      const response = await axios.patch(`/api/v1/tasks${taskId}`, updates);
+      const response = await axios.patch(
+        `https://task-manager-wxtk.onrender.com/api/v1/tasks${taskId}`,
+        updates
+      );
       dispatch(updateTaskSuccess(response.data));
       navigate("/");
     } catch (error) {
@@ -75,7 +81,9 @@ export const deleteTask = (taskId) => {
   return async (dispatch) => {
     dispatch(setLoading(true));
     try {
-      await axios.delete(`/api/v1/tasks/${taskId}`);
+      await axios.delete(
+        `https://task-manager-wxtk.onrender.com/api/v1/tasks/${taskId}`
+      );
       dispatch(deleteTaskSuccess(taskId));
     } catch (error) {
       dispatch(setError(error.response.data.message));
