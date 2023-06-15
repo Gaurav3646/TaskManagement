@@ -69,7 +69,17 @@ export const updateTask = (taskId, updates, navigate) => {
         `https://task-manager-wxtk.onrender.com/api/v1/tasks/${taskId}`,
         updates
       );
-      dispatch(updateTaskSuccess(response.data));
+      const updatedtask = response.data.task;
+      console.log(updatedtask);
+      dispatch(
+        updateTaskSuccess({
+          id: updatedtask._id,
+          title: updatedtask.name,
+          description: updatedtask.description,
+          completed: updatedtask.completed,
+        })
+      );
+
       navigate("/");
     } catch (error) {
       dispatch(setError(error.response.data.message));

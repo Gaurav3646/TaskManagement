@@ -28,6 +28,10 @@ const Update = () => {
       </Section>
     );
   }
+  //   if (taskTitleInputRef) taskTitleInputRef.current.value = foundTask.title;
+  //   if (taskDescriptionInputRef)
+  //     taskDescriptionInputRef.current.value = foundTask.description;
+
   const enterTaskHandler = async (
     enteredTitleValue,
     enteredDescriptionValue,
@@ -35,6 +39,7 @@ const Update = () => {
   ) => {
     dispatch(
       updateTask(
+        id,
         {
           name: enteredTitleValue,
           description: enteredDescriptionValue,
@@ -57,7 +62,7 @@ const Update = () => {
     if (enteredDescriptionValue.trim().length === 0) {
       return taskDescriptionInputRef.current.focus();
     }
-    console.log(enteredDescriptionValue, enteredTitleValue);
+    console.log(enteredDescriptionValue, enteredTitleValue, isChecked);
     enterTaskHandler(enteredTitleValue, enteredDescriptionValue, isChecked);
   };
 
@@ -65,9 +70,16 @@ const Update = () => {
     <Section>
       <form className={classes.form} onSubmit={submitHandler}>
         <label>Title</label>
-        <input type="text" value={foundTask.title} ref={taskTitleInputRef} />
+        <input
+          type="text"
+          defaultValue={foundTask.title}
+          ref={taskTitleInputRef}
+        />
         <label>Description</label>
-        <textarea value={foundTask.description} ref={taskDescriptionInputRef} />
+        <textarea
+          defaultValue={foundTask.description}
+          ref={taskDescriptionInputRef}
+        />
         <label>
           <input
             type="checkbox"
