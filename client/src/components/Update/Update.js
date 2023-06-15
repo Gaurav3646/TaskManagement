@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addTask } from "../../redux/thunks";
+import { addTask, updateTask } from "../../redux/thunks";
 import { green } from "@mui/material/colors";
 const Update = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Update = () => {
     isChecked
   ) => {
     dispatch(
-      addTask(
+      updateTask(
         {
           name: enteredTitleValue,
           description: enteredDescriptionValue,
