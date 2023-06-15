@@ -66,7 +66,7 @@ export const updateTask = (taskId, updates, navigate) => {
     dispatch(setLoading(true));
     try {
       const response = await axios.patch(
-        `https://task-manager-wxtk.onrender.com/api/v1/tasks${taskId}`,
+        `https://task-manager-wxtk.onrender.com/api/v1/tasks/${taskId}`,
         updates
       );
       dispatch(updateTaskSuccess(response.data));
