@@ -1,10 +1,57 @@
 .task {
   border-bottom: 1px solid #ccc;
   padding: 1rem;
-  font-weight: bold;
-  font-size: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .task:last-of-type {
   border-bottom: none;
+}
+
+.taskHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taskActionButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.taskActionButtons button {
+  cursor: pointer;
+  font: inherit;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+
+.taskActionButtons button:hover,
+.taskActionButtons button:active {
+  background-color: #b6b6b6;
+  border-color: #b6b6b6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.234);
+}
+
+.taskTitle {
+  display: flex;
+  font-weight: bold;
+  font-size: 1.25rem;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+.blueTick {
+  height: 0.8rem;
+  font-size: 0.8rem;
+}
+.taskDescription {
+  font-size: 0.8rem;
 }

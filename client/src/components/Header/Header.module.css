@@ -1,0 +1,21 @@
+.header {
+  padding: 1rem 3rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.211);
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #7a0144;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
