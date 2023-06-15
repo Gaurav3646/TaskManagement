@@ -11,7 +11,10 @@ import axios from "axios";
 export const addTask = (task, navigate) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const response = await axios.post("/api/v1/tasks", task);
+    const response = await axios.post(
+      "https://task-manager-wxtk.onrender.com/api/v1/tasks",
+      task
+    );
     const newtask = response.data.task;
     console.log(newtask);
     dispatch(
@@ -35,7 +38,6 @@ export const getTasks = () => {
   return async (dispatch) => {
     dispatch(setLoading(true));
     try {
-      const config = { header: { "Content-Type": "application/json" } };
       const response = await axios.get(
         "https://task-manager-wxtk.onrender.com/api/v1/tasks"
       );
